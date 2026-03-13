@@ -324,7 +324,7 @@ export function AIJobChat() {
         <div className="fixed bottom-16 right-6 z-50">
           <button
             onClick={() => setIsOpen(true)}
-            className="relative h-16 w-16 rounded-full shadow-lg flex items-center justify-center"
+            className="relative h-14 w-14 sm:h-16 sm:w-16 rounded-full shadow-lg flex items-center justify-center"
             style={{ background: 'linear-gradient(to right, #9810fa, #4f39f6)' }}
           >
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24">
@@ -349,7 +349,7 @@ export function AIJobChat() {
       {/* Chat Window */}
       {isOpen && (
         <div 
-          className="fixed bottom-16 right-6 w-[446px] h-[600px] bg-white rounded-[14px] flex flex-col overflow-hidden z-50"
+          className="fixed bottom-4 right-2 left-2 w-[calc(100%-1rem)] max-w-[446px] h-[calc(100vh-6rem)] sm:bottom-16 sm:right-6 sm:left-auto sm:w-[446px] sm:h-[600px] bg-white rounded-[14px] flex flex-col overflow-hidden z-50"
           style={{ 
             border: '2px solid #e9d4ff',
             boxShadow: '0px 25px 50px -12px rgba(0,0,0,0.25)'
