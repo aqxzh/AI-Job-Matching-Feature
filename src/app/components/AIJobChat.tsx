@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { vacancies, type Vacancy } from '../data/vacancies';
 import svgPaths from '../../imports/svg-3vepo7tdp4';
 import svgPathsFaq from '../../imports/svg-byucbudsw5';
@@ -251,7 +251,7 @@ export function AIJobChat() {
       );
       
       return hasMatchingSkills;
-    }).slice(0, 6);
+    }).slice(0, 3);
   };
 
   const handleSendMessage = () => {
@@ -275,18 +275,18 @@ export function AIJobChat() {
       let responseVacancies: Vacancy[] = [];
 
       if (lowerInput.includes('алматы') || lowerInput.includes('алмат')) {
-        responseVacancies = vacancies.filter(v => v.location === 'Алматы').slice(0, 6);
+        responseVacancies = vacancies.filter(v => v.location === 'Алматы').slice(0, 3);
         responseContent = `Нашел вакансии в городе Алматы, подходящие вашему профилю:`;
       } else if (lowerInput.includes('зарплат') || lowerInput.includes('оклад') || lowerInput.includes('salary')) {
-        responseVacancies = vacancies.filter(v => v.salary >= 500000).slice(0, 6);
+        responseVacancies = vacancies.filter(v => v.salary >= 500000).slice(0, 3);
         responseContent = `Вот вакансии с высокой заработной платой (от 500,000 ₸):`;
       } else if (lowerInput.includes('аналит')) {
-        responseVacancies = vacancies.filter(v => v.title.toLowerCase().includes('аналит')).slice(0, 6);
+        responseVacancies = vacancies.filter(v => v.title.toLowerCase().includes('аналит')).slice(0, 3);
         responseContent = `Специально для вас подобрал вакансии в области аналитики:`;
       } else if (lowerInput.includes('больше') || lowerInput.includes('еще') || lowerInput.includes('другие')) {
         responseVacancies = vacancies.filter(v => 
           !messages.some(m => m.vacancies?.some(mv => mv.id === v.id))
-        ).slice(0, 6);
+        ).slice(0, 3);
         responseContent = `Вот еще интересные вакансии для вас:`;
       } else {
         responseContent = `Понял ваш запрос. Могу помочь вам:\n\n• Найти вакансии в конкретном городе\n• Подобрать позиции с определенной зарплатой\n• Показать вакансии в нужной области\n• Рассказать подробнее о любой вакансии\n\nЧто именно вас интересует?`;
@@ -580,15 +580,11 @@ export function AIJobChat() {
                             ))}
                           </div>
                           
-                          <button 
+                          <button
                             className="w-full h-9 bg-[#9810fa] hover:bg-[#8200db] text-white rounded-lg flex items-center justify-center gap-2 transition-colors"
                             onClick={() => {
-                              try {
-                                navigate('/vacancies');
-                              } catch (e) {
-                                window.location.href = '/vacancies';
-                              }
                               setIsOpen(false);
+                              window.location.href = '/vacancies';
                             }}
                           >
                             <span className="text-sm font-medium tracking-[-0.1504px]">Посмотреть все вакансии</span>

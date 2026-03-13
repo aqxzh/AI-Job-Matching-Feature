@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import Vacancies from './pages/Vacancies';
 import { AIJobChat } from './components/AIJobChat';
 
