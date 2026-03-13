@@ -583,7 +583,11 @@ export function AIJobChat() {
                           <button 
                             className="w-full h-9 bg-[#9810fa] hover:bg-[#8200db] text-white rounded-lg flex items-center justify-center gap-2 transition-colors"
                             onClick={() => {
-                              navigate('/vacancies');
+                              try {
+                                navigate('/vacancies');
+                              } catch (e) {
+                                window.location.href = '/vacancies';
+                              }
                               setIsOpen(false);
                             }}
                           >
