@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Vacancies from './pages/Vacancies';
 import { AIJobChat } from './components/AIJobChat';
 
@@ -12,7 +12,7 @@ function VacanciesWithChat() {
   );
 }
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <VacanciesWithChat />,
