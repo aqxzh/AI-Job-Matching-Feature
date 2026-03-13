@@ -349,7 +349,7 @@ export function AIJobChat() {
       {/* Chat Window */}
       {isOpen && (
         <div 
-          className="fixed bottom-4 right-2 left-2 w-[calc(100%-1rem)] max-w-[446px] h-[calc(100vh-6rem)] sm:bottom-16 sm:right-6 sm:left-auto sm:w-[446px] sm:h-[600px] bg-white rounded-[14px] flex flex-col overflow-hidden z-50"
+          className="fixed inset-0 sm:inset-auto sm:bottom-16 sm:right-6 sm:left-auto w-full sm:w-[446px] h-full sm:h-[600px] max-w-[446px] bg-white sm:rounded-[14px] rounded-none flex flex-col overflow-hidden z-50"
           style={{ 
             border: '2px solid #e9d4ff',
             boxShadow: '0px 25px 50px -12px rgba(0,0,0,0.25)'
@@ -625,7 +625,7 @@ export function AIJobChat() {
           
           {/* Input Area - Hidden when FAQ is open */}
           {!isFaqOpen && (
-            <div className="p-4 bg-white" style={{ borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+            <div className="p-3 bg-white border-t border-gray-200 sm:border-t-0 sm:p-4" style={{ position: 'sticky', bottom: 0, zIndex: 20 }}>
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -633,7 +633,7 @@ export function AIJobChat() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Спросите о вакансиях..."
-                  className="flex-1 h-9 px-3 py-1 bg-[#f3f3f5] rounded-lg text-sm text-[#0a0a0a] placeholder-[#717182] tracking-[-0.1504px] outline-none"
+                  className="flex-1 h-10 px-3 py-2 bg-[#f3f3f5] rounded-lg text-sm text-[#0a0a0a] placeholder-[#717182] tracking-[-0.1504px] outline-none"
                 />
                 <button
                   onClick={handleSendMessage}
