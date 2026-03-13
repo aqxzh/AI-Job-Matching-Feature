@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { vacancies, type Vacancy } from '../data/vacancies';
 import svgPaths from '../../imports/svg-3vepo7tdp4';
 import svgPathsFaq from '../../imports/svg-byucbudsw5';
